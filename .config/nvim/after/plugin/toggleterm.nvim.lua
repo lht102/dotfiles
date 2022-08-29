@@ -1,5 +1,6 @@
 local toggleterm = require("toggleterm")
 
 toggleterm.setup({
-  open_mapping = [[<leader>te]]
+  insert_mappings = false,
+  open_mapping = [[<leader>te]],
 })
