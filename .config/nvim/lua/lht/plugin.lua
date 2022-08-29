@@ -32,6 +32,7 @@ packer.startup(function(use)
   use("nvim-telescope/telescope-file-browser.nvim")
   use("nvim-lualine/lualine.nvim")
   use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+  use("lewis6991/gitsigns.nvim")
 
   use("windwp/nvim-autopairs")
   use("numToStr/Comment.nvim")
