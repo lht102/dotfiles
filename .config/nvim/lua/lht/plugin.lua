@@ -38,10 +38,7 @@ packer.startup(function(use)
   use("windwp/nvim-autopairs")
   use("numToStr/Comment.nvim")
   use("norcalli/nvim-colorizer.lua")
-  use({
-    "kylechui/nvim-surround",
-    tag = "*",
-  })
+  use({ "kylechui/nvim-surround", tag = "*", })
 
   use({
     "iamcco/markdown-preview.nvim",
