@@ -27,6 +27,8 @@ packer.startup(function(use)
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
   })
+  use("nvim-treesitter/nvim-treesitter-context")
+  use("nvim-treesitter/nvim-treesitter-textobjects")
 
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-file-browser.nvim")
