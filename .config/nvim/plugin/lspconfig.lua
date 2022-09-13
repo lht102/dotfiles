@@ -1,11 +1,11 @@
-local mason = require("mason")
+local mason           = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
-local cmp = require("cmp")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local luasnip = require("luasnip")
-local lspkind = require("lspkind")
+local lspconfig       = require("lspconfig")
+local null_ls         = require("null-ls")
+local cmp             = require("cmp")
+local cmp_nvim_lsp    = require("cmp_nvim_lsp")
+local luasnip         = require("luasnip")
+local lspkind         = require("lspkind")
 
 mason.setup()
 mason_lspconfig.setup({
@@ -33,6 +33,7 @@ local lsp_on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set("n", "<space>fa", vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
@@ -78,6 +79,31 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.rust_analyzer.setup({
+  on_attach = lsp_on_attach,
+  flags = lsp_flags,
+  capabilities = lsp_capabilities,
+})
+
+lspconfig.jsonls.setup({
+  on_attach = lsp_on_attach,
+  flags = lsp_flags,
+  capabilities = lsp_capabilities,
+})
+
+lspconfig.yamlls.setup({
+  on_attach = lsp_on_attach,
+  flags = lsp_flags,
+  capabilities = lsp_capabilities,
+  settings = {
+    yaml = {
+      format = {
+        enable = true,
+      },
+    },
+  },
+})
+
+lspconfig.lemminx.setup({
   on_attach = lsp_on_attach,
   flags = lsp_flags,
   capabilities = lsp_capabilities,
